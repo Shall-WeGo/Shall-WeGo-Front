@@ -1,9 +1,9 @@
-import KakaoMap from "../components/map/KakaoMap";
-
-const map = () => {
+import { NextPage } from "next";
+import KakaoMap from "components/map/KakaoMap";
+import Script from "next/script";
+const map: NextPage = () => {
   return (
     <>
-      <h1>Map</h1>
       <KakaoMap />
     </>
   );
