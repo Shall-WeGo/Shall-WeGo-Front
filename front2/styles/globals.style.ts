@@ -11,8 +11,12 @@ html{
     height:100%;
     background-color:${(props) => props.theme.background};
 }
-div{
+
+h1,h2,h3,h4,h5,p{
+    color:${(props) => props.theme.fontColor}
 }
+
+
 `;
 
 export default GlobalStyle;
