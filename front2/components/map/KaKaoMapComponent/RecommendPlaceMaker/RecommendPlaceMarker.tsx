@@ -1,22 +1,26 @@
-import useRecommendMarker from "hooks/useRecommendMarker";
-import React, { useEffect } from "react";
-import { MapMarker } from "react-kakao-maps-sdk";
-const RecommendPlaceMarker = ({ map, myAdress }: any) => {
-  const markers = useRecommendMarker(map, myAdress);
-  console.log(markers);
+import React, { useEffect, useState } from "react";
+import { MapMarker, useMap } from "react-kakao-maps-sdk";
+
+interface propsType {
+  position: {
+    lat: number;
+    lng: number;
+  };
+  content: string;
+}
+const RecommendPlaceMarker = ({ position, content }: propsType) => {
+  const map = useMap();
+  const [isVisible, setIsVisible] = useState<Boolean>();
   return (
     <>
-      {markers.map((marker: any) => (
-        <MapMarker
-          key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-          position={marker.position}
-          //   onClick={() => setInfo(marker)}
-        >
-          {/* {info && info.content === marker.content && (
-            <div style={{ color: "#000" }}>{marker.content}</div>
-          )} */}
-        </MapMarker>
-      ))}
+      <MapMarker
+        position={position}
+        onClick={(marker) => map.panTo(marker.getPosition())}
+        onMouseOver={() => setIsVisible(true)}
+        onMouseOut={() => setIsVisible(false)}
+      >
+        {isVisible && content}
+      </MapMarker>
     </>
   );
 };

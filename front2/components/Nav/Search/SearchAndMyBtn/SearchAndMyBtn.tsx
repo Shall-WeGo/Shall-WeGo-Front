@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { isSelectSearch } from "store";
 import * as S from "./SearchAndMyBtn.style";
 const SearchAndMyBtn = () => {
-  const [isSelectSearchBtn, setIsSelectSearchBtn] = useState(true);
-  useEffect(() => {
-    console.log(isSelectSearchBtn);
-  });
+  const [isSelectSearchBtn, setIsSelectSearchBtn] =
+    useRecoilState(isSelectSearch);
 
   const onClickSearchBtn = () => {
     !isSelectSearchBtn && setIsSelectSearchBtn((prev) => !prev);

@@ -1,13 +1,13 @@
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { useRecoilValue } from "recoil";
-import useMyGPSMAPLoding from "hooks/useMyGPSMapLoding";
+import useMyGPSMAPLoding from "util/hooks/useMyGPSMapLoding";
 import { isOpenNav } from "store";
 import RecommendPlaceMaker from "./RecommendPlaceMaker";
 import { useEffect, useState } from "react";
 
 const KaKaoMapComponent = () => {
   const [map, setMap] = useState<any>();
-  const { myGPS, load, myAdress } = useMyGPSMAPLoding();
+  const { myGPS, load, markers } = useMyGPSMAPLoding(map);
   const isOpenNavState = useRecoilValue(isOpenNav);
 
   return (
@@ -23,7 +23,15 @@ const KaKaoMapComponent = () => {
             level={3}
             onCreate={setMap}
           >
-            <RecommendPlaceMaker map={map} myAdress={myAdress} />
+            {markers.map((value: any) => {
+              return (
+                <RecommendPlaceMaker
+                  key={`${value.position.lat}-${value.position.lng}`}
+                  position={value.position}
+                  content={value.content}
+                />
+              );
+            })}
           </Map>
         </>
       )}
