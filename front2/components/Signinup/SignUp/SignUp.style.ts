@@ -50,5 +50,8 @@ export const ATagContainer = styled.div`
 `;
 
 export const checkPw = styled.p`
+  margin-top: 10px;
+  margin-right: 270px;
+  font-size: 10px;
   color: red;
 `;

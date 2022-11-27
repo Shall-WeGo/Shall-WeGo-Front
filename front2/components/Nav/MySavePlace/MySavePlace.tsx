@@ -1,8 +1,8 @@
 import NotLogin from "./NotLogin";
 import SaveList from "./SaveList";
-import * as M from "./MySavePlace.style"
+import * as M from "./MySavePlace.style";
 const MySavePlace = () => {
-  const token = window.localStorage.getItem("token");
+  const token = window.localStorage.getItem("access_token");
   console.log(token);
   return <M.Container>{token ? <SaveList /> : <NotLogin />}</M.Container>;
 };

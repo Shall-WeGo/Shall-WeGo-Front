@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
 export const isOpenNav = atom({
-  key: "isOpenNav",
+  key: "isOpenNavKey",
   default: false,
 });
 
@@ -10,7 +10,17 @@ export const isSelectSearch = atom({
   default: true,
 });
 
-export const markersInfo: any = atom({
-  key: "markers",
+export const markersInfo = atom({
+  key: "markersInfoKey",
   default: [],
+});
+
+export const searchKeyWord = atom({
+  key: "searchKeyWordKey",
+  default: "",
+});
+
+export const myAdressAtom = atom({
+  key: "myAdressKey",
+  default: "",
 });

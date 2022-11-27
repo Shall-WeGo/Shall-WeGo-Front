@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MapMarker, useMap } from "react-kakao-maps-sdk";
-
+import styled from "styled-components";
 interface propsType {
   position: {
     lat: number;
@@ -19,10 +19,21 @@ const RecommendPlaceMarker = ({ position, content }: propsType) => {
         onMouseOver={() => setIsVisible(true)}
         onMouseOut={() => setIsVisible(false)}
       >
-        {isVisible && content}
+        {isVisible && <MarkerContent>{content}</MarkerContent>}
       </MapMarker>
     </>
   );
 };
 
 export default RecommendPlaceMarker;
+
+const MarkerContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* padding: 10px; */
+  width: 200px;
+  height: 30px;
+  border: none;
+`;

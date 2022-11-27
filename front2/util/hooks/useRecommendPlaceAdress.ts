@@ -1,8 +1,7 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 
 const useRecommendPlace = (markers: any) => {
-  const makersAdressInfo: any = [];
-
+  let makersAdressInfo: any = [];
   useEffect(() => {
     kakao.maps.services &&
       markers.forEach((value: any) => {
