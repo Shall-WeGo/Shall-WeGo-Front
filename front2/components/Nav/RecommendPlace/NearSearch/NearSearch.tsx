@@ -30,7 +30,7 @@ const NearSearch = () => {
     "편의점",
   ];
 
-  // const setSearch = useSetRecoilState(searchKeyWord);
+  const setSearch = useSetRecoilState(searchKeyWord);
 
   // const [isSelectTag, setIsSelectTag] = useState([
   //   false,
@@ -43,19 +43,19 @@ const NearSearch = () => {
   // useEffect(() => {
   //   console.log(isSelectTag);
   // });
-  const onClickTag = (i: number) => {
-    console.log("1", i);
-    // setSearch(`{구지 ${tagName[i]}}`);
-    // let copy = [...isSelectTag];
-    // copy[i] = true;
-    // setIsSelectTag(copy);
-  };
+  // const onClickTag = (i: number) => {
+  //   console.log("1", i);
+  //   setSearch(`{구지 ${tagName[i]}}`);
+  //   // let copy = [...isSelectTag];
+  //   // copy[i] = true;
+  //   // setIsSelectTag(copy);
+  // };
   return (
     <N.NearSearchContainer>
       <h2>주변탐색</h2>
       <N.TagList>
         {tag.map((value, i) => (
-          <N.TagNameIconContainer onClick={onClickTag(i)}>
+          <N.TagNameIconContainer>
             <N.TagContainer>{value}</N.TagContainer>
             <p>{tagName[i]}</p>
           </N.TagNameIconContainer>

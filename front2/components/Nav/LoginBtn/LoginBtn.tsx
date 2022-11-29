@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { useEffect } from "react";
 import * as L from "./LoginBtn.style";
 const LoginBtn = () => {
   let token;
-  if (typeof window !== "undefined") {
-    token = localStorage.getItem("access_token");
-  }
+
+  useEffect(() => {
+    token = Boolean(localStorage.getItem("access_token"));
+  }, []);
 
   const logOut = () => {
     localStorage.removeItem("access_token");
