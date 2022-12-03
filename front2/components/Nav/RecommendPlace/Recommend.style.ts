@@ -4,7 +4,6 @@ export const PlaceContainer = styled.div`
   width: 374px;
   height: 60px;
   background: #fff;
-  border-bottom: 1px solid #eeeeee;
   font-weight: 400;
   font-size: 16px;
   line-height: 23px;
@@ -24,6 +23,7 @@ export const PlaceButtonContainer = styled.div`
   padding: 10px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #eee;
 `;
 
 export const SaveContainer = styled.div`

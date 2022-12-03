@@ -24,3 +24,8 @@ export const myAdressAtom = atom({
   key: "myAdressKey",
   default: "",
 });
+
+export const placeInfo = atom({
+  key: "placeInfoKey",
+  default: [],
+});

@@ -43,23 +43,30 @@ const NearSearch = () => {
   // useEffect(() => {
   //   console.log(isSelectTag);
   // });
-  // const onClickTag = (i: number) => {
-  //   console.log("1", i);
-  //   setSearch(`{구지 ${tagName[i]}}`);
-  //   // let copy = [...isSelectTag];
-  //   // copy[i] = true;
-  //   // setIsSelectTag(copy);
-  // };
+  const onClickTag = (i: number) => {
+    console.log("1", i);
+    setSearch(`{구지 ${tagName[i]}}`);
+    // let copy = [...isSelectTag];
+    // copy[i] = true;
+    // setIsSelectTag(copy);
+  };
   return (
     <N.NearSearchContainer>
       <h2>주변탐색</h2>
       <N.TagList>
-        {tag.map((value, i) => (
-          <N.TagNameIconContainer>
-            <N.TagContainer>{value}</N.TagContainer>
-            <p>{tagName[i]}</p>
-          </N.TagNameIconContainer>
-        ))}
+        {tag.map((value, i) => {
+          return (
+            <N.TagNameIconContainer
+              key={i}
+              onClick={() => {
+                onClickTag(i);
+              }}
+            >
+              <N.TagContainer>{value}</N.TagContainer>
+              <p>{tagName[i]}</p>
+            </N.TagNameIconContainer>
+          );
+        })}
       </N.TagList>
     </N.NearSearchContainer>
   );

@@ -5,13 +5,13 @@ export const customAxios = axios.create({
   timeout: 10000,
 });
 
-// export const getRequestWithAccessToken = (token: string) => {
-//   const request = axios.create({
-//     timeout: 10000,
-//     baseURL: config.server,
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
-//   return request;
-// };
+export const getRequestWithAccessToken = (token: string) => {
+  const request = axios.create({
+    timeout: 10000,
+    baseURL: config.server,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return request;
+};

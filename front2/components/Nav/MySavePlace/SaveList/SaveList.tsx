@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import styled from "styled-components";
-
+import { getRequestWithAccessToken } from "util/api/customAxios";
+import useSaveListData from "./hooks/useSaveListData";
 const SaveList = () => {
+  const saveList = useSaveListData();
   return (
     <Container>
       <h1>CU 구지예다음점</h1>

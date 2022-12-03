@@ -1,6 +1,9 @@
 import { useState, useEffect, useLayoutEffect } from "react";
+import { useSetRecoilState } from "recoil";
+import { placeInfo } from "store";
 
 const useRecommendPlace = (markers: any) => {
+  const setPlaceInfo = useSetRecoilState(placeInfo);
   let makersAdressInfo: any = [];
   useEffect(() => {
     kakao.maps.services &&

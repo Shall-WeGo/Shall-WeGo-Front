@@ -9,8 +9,8 @@ export const CloseBtnContainer = styled.div<styledProps>`
   align-items: center;
   cursor: pointer;
   position: absolute;
-  z-index: 999;
-  left: ${(props) => (props.isOpenNav ? "0px" : "370px")};
+  z-index: 3;
+  left: ${(props) => (props.isOpenNav ? "0px" : "372px")};
   top: 430px;
   width: 18px;
   height: 40px;
