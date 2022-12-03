@@ -15,4 +15,8 @@ export const LogoContainer = styled.div`
   cursor: pointer;
   align-items: center;
   margin: 0 600px 0 100px;
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 `;

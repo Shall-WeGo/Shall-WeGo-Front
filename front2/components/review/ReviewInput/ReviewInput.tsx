@@ -33,7 +33,7 @@ const ReviewInput = () => {
         rate: score,
         review_message: message,
       });
-      location.reload();
+      //   location.reload();
     } catch (err) {
       console.log(err);
     }

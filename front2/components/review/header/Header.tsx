@@ -1,4 +1,5 @@
 import MiniLogo from "assets/miniLogo";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { customAxios } from "util/api/customAxios";
@@ -10,7 +11,7 @@ const Header = () => {
     <H.HeaderComponent>
       <H.LogoContainer>
         <MiniLogo />
-        <p>한번가볼까</p>
+        <Link href={"/"}>한번가볼까</Link>
       </H.LogoContainer>
       <h1>{placeName}</h1>
     </H.HeaderComponent>
