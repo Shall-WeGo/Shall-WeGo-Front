@@ -25,6 +25,7 @@ export const ReviewTitle = styled.h1`
 `;
 export const ReviewItem = styled.div`
   display: flex;
+  justify-content: space-around;
   align-items: center;
   width: 600px;
   height: 85px;
@@ -41,4 +42,17 @@ export const ReviewLen = styled.p`
   letter-spacing: -0.0024em;
 
   color: #5fc970;
+`;
+
+export const DeleteBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 34px;
+  color: #eeeeee;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  cursor: pointer;
 `;

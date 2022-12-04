@@ -9,9 +9,14 @@ const ReviewInput = () => {
   const [score, setScore] = useState(0);
   const [token, setToken] = useState("");
   const router = useRouter();
-  const placeName = router.query.address;
-
   const inputRef = useRef();
+
+  const [placeName, setPlaceName] = useState("");
+  useEffect(() => {
+    const placeName = router.query.address;
+    setPlaceName(placeName);
+  }, []);
+
   const onClickStar = (i: number) => {
     let exstar = [false, false, false, false, false];
     for (let j = 0; j <= i; j++) {
@@ -24,15 +29,17 @@ const ReviewInput = () => {
     const token = localStorage.getItem("access_token");
     setToken(token);
   }, []);
+
   const onCliclReview = async () => {
     const message = inputRef.current.value;
     const request = getRequestWithAccessToken(token);
     try {
-      const result = request.post("/reviews", {
+      request.post("/reviews", {
         location: placeName,
         rate: score,
         review_message: message,
       });
+      //   console.log(result);
       //   location.reload();
     } catch (err) {
       console.log(err);

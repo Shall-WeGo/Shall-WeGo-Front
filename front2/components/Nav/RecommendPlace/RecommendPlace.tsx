@@ -16,8 +16,10 @@ const RecommendPlace = () => {
   useEffect(() => {
     setToken(localStorage?.getItem("access_token"));
   }, []);
+
   const onClickSave = (i: number) => {
     if (token) {
+      console.log(makersAdressInfo);
       const request = getRequestWithAccessToken(token);
       request.post("/locations", {
         address: makersAdressInfo[i]?.address,
@@ -32,19 +34,22 @@ const RecommendPlace = () => {
     <>
       <NearSearch />
       <R.Container>
-        {markers.map((value: any, i) => {
-          return (
-            <R.PlaceButtonContainer key={value.position.lat}>
-              <R.PlaceContainer>{value.content}</R.PlaceContainer>
-              <R.SaveContainer>
-                <R.SaveSVG onClick={() => onClickSave(i)}>
-                  <Save />
-                </R.SaveSVG>
-                <Link href={`/review/${value.content}`}>리뷰</Link>
-              </R.SaveContainer>
-            </R.PlaceButtonContainer>
-          );
-        })}
+        {makersAdressInfo &&
+          markers.map((value: any, i) => {
+            return (
+              <R.PlaceButtonContainer key={value.position.lat}>
+                <R.PlaceContainer>{value.content}</R.PlaceContainer>
+                <R.SaveContainer>
+                  <R.SaveSVG onClick={() => onClickSave(i)}>
+                    <Save />
+                  </R.SaveSVG>
+                  <Link href={`/review/${makersAdressInfo[i]?.address}`}>
+                    리뷰
+                  </Link>
+                </R.SaveContainer>
+              </R.PlaceButtonContainer>
+            );
+          })}
       </R.Container>
     </>
   );

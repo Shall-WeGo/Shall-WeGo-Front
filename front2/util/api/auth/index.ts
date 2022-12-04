@@ -7,6 +7,7 @@ export const signInPost = async (username: string, password: string) => {
       password,
     });
     localStorage.setItem("access_token", response.data.access_token);
+    localStorage.setItem("username", response.data.username);
     location.href = "/";
   } catch (err) {
     console.log(err);

@@ -3,14 +3,16 @@ import { useSetRecoilState } from "recoil";
 import { placeInfo } from "store";
 
 const useRecommendPlace = (markers: any) => {
-  const setPlaceInfo = useSetRecoilState(placeInfo);
+  const [markerInfo, setMarkerInfo] = useState();
+  // const setPlaceInfo = useSetRecoilState(placeInfo);
   let makersAdressInfo: any = [];
   useEffect(() => {
     kakao.maps.services &&
       markers.forEach((value: any) => {
         getAddr(value);
       });
-  });
+    setMarkerInfo(makersAdressInfo);
+  }, []);
 
   const getAddr = (value: any) => {
     let geocoder = new kakao.maps.services.Geocoder();
@@ -28,6 +30,6 @@ const useRecommendPlace = (markers: any) => {
     };
     geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
   };
-  return makersAdressInfo;
+  return markerInfo;
 };
 export default useRecommendPlace;
